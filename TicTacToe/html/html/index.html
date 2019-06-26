@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+	<script>
+		function myfunconload(){
+			var url_string = window.location.search;
+			url_string = url_string.replace("?","");
+			var urlparameters = url_string.split("&");
+			for (var i = 0; i < urlparameters.length; i++) {
+				var pair = urlparameters[i].split("=");
+				var x = document.getElementById(pair[0]);
+				x.classList.add(pair[1] + "-dot");
+			}
+		}
+	</script>
+  <meta content="text/html; charset=ISO-8859-1" http-equiv="content-type">
+  <link rel="stylesheet" href="css/TicTacToe.css">
+  <title>TicTacToe Board</title>
+</head>
+<body onload="myfunconload()">
+<div class="game">
+	<div class="board">
+		<div class="field tl"><i id="tl"></i></div>
+		<div class="field tm"><i id="tm"></i></div>
+		<div class="field tr"><i id="tr"></i></div>
+		<div class="field ml"><i id="ml"></i></div>
+		<div class="field mm"><i id="mm"></i></div>
+		<div class="field mr"><i id="mr"></i></div>
+		<div class="field dl"><i id="dl"></i></div>
+		<div class="field dm"><i id="dm"></i></div>
+		<div class="field dr"><i id="dr"></i></div>
+	</div>
+	<div class="restart"></div>
+</div>
+</body>
+</html>
+

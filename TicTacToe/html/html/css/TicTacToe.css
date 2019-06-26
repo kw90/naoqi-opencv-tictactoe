@@ -1,0 +1,87 @@
+.game{}
+
+.board {
+	position: absolute;
+    top: 10px;
+    left: 200px;
+	height: 600px;
+	width: 600px;
+	background-color: white;
+}
+
+.field {
+    height : 199px;
+	width : 199px;
+	border-style: solid;
+	border-color: black;
+    text-align: center;
+}
+
+.tl{
+	position: absolute;
+    top: 0px;
+    left: 0px;
+}
+.tm{
+	position: absolute;
+    top: 0px;
+    left: 200px;
+}
+.tr{
+	position: absolute;
+    top: 0px;
+    left: 400px;
+}
+.ml{
+	position: absolute;
+    top: 200px;
+    left: 0px;
+}
+.mm{
+	position: absolute;
+    top: 200px;
+    left: 200px;
+}
+.mr{
+	position: absolute;
+    top: 200px;
+    left: 400px;
+}
+.dl{
+	position: absolute;
+    top: 400px;
+    left: 0px;
+}
+.dm{
+	position: absolute;
+    top: 400px;
+    left: 200px;
+}
+.dr{
+	position: absolute;
+    top: 400px;
+    left: 400px;
+}
+
+.dot-div {
+    height: 100%;
+    width: 100%;
+}
+
+.red-dot {
+  height: 150px;
+  width: 150px;
+  background-color: red;
+  border-radius: 50%;
+  display: inline-block;
+  margin-top: 24.5px;
+}
+
+.blue-dot {
+  height: 150px;
+  width: 150px;
+  background-color: blue;
+  border-radius: 50%;
+  display: inline-block;
+  margin-top: 24.5px;
+}
