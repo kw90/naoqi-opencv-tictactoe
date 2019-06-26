@@ -1,6 +1,6 @@
 # Tic Tac Toe running on Pepper
 
-Application for playing Tic Tac Toe against Pepper with simple game logic, computer vision and human-robot interaction components. The included Dockerfile allows to run everything in a pre-built container without the need to install Python2.7, NaoQi 2.5 and OpenCV 3.4. The environment variables `PEPPER_IP` and `PEPPER_PW` should be changed.
+Application for playing Tic Tac Toe against Pepper with simple game logic, computer vision and human-robot interaction components. The included Dockerfile allows to run everything in a pre-built container without the need to install Python2.7, NaoQi 2.5 and OpenCV 3.4. The environment variables `PEPPER_IP` and `PEPPER_PW` should be changed. This repository has been created for a workshop at the 37th Bundeswettbewerb Informatik BWINF.
 
 
 ## Requirements
