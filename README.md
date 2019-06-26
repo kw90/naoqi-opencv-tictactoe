@@ -23,7 +23,7 @@ $ ssh nao@[PEPPER_IP]
 
 ## Development Guide
 
-So that we can start programming, we first need the version control software `Git`. An installation guide can be found at https://git-scm.com/book/de/v1/Los-geht%E2%80%99s-Git-installieren.
+So that we can start programming, we first need the version control software `Git`. An installation guide can be found [here](https://git-scm.com/book/de/v1/Los-geht%E2%80%99s-Git-installieren).
 
 Clone the repository naoqi-opencv-tictactoe with
 
@@ -54,6 +54,12 @@ docker run -it --network host naoqi-opencv-tictactoe-dev:latest
 
 which runs  the Python `Main.py` program on the specified Pepper in the `Dockerfile`.
 
+To run a different program inside the container, it can be specified after the container image description
+
+```bash
+docker run -it --network host naoqi-opencv-tictactoe-dev:latest python DetectBoard.py
+```
+
 If something has been modified in the TicTacToe application, you can simply use the two commands
 
 ```bash
@@ -62,3 +68,16 @@ docker run -it --network host naoqi-opencv-tictactoe-dev:latest
 ```
 
 to rebuild and rerun the container.
+
+### More convenient way
+
+For more convenient development, the source directory `TicTacToe` can be mounted inside the container and started with a simple shell as entrypoint
+
+```bash
+docker run -it -v `pwd`/TicTacToe:/naoqi/src/tic-tac-toe --entrypoint /bin/sh --network host naoqi-opencv-tictactoe-dev:latest
+```
+This method allows to modify files on the Host machine using a preferred text editor and run them inside the container by running the Python program on the Docker shell, e.g. simply
+
+```bash
+python Main.py
+```
