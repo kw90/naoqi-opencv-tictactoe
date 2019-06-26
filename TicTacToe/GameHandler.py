@@ -20,7 +20,7 @@ class GameHandler(object):
         self.__showScreen.show_screen("")
         self.__game = TicTacToe(self.__session, self.__speech, self.__showScreen)
         self.__moveReader = MoveReader(self.__session, self.__game)
-        #self.__speechDetection = SpeechDetection(self.__session, ["Let's Play", "Stop"], self.speech_callback)
+        self.__speechDetection = SpeechDetection(self.__session, ["Let's Play", "Stop"], self.speech_callback)
         self.__animationPlayer = AnimationPlayer(self.__session, motion)
         self.__waiting_game_start = 1
         self.__playing = 1
@@ -72,8 +72,8 @@ class GameHandler(object):
             print "End of Game"
             self.__waiting_game_start = 1
             self.__playing = 1
-            # self.__speechDetection.unsubscribe()
-            #self.__speechDetection = SpeechDetection(self.__session, ["Let's Play", "Stop"], self.speech_callback)
+            self.__speechDetection.unsubscribe()
+            self.__speechDetection = SpeechDetection(self.__session, ["Let's Play", "Stop"], self.speech_callback)
         #self.__speechDetection.unsubscribe()
 
 
@@ -89,13 +89,13 @@ class GameHandler(object):
         print(value)
         if value[0] == "Let's Play":
             if value[1] > 0.3:
-                #self.__speechDetection.unsubscribe()
+                self.__speechDetection.unsubscribe()
                 self.look_at_player_and_say("Okay, Let's do this!", False)
                 self.__waiting_game_start = 0
                 self.__showScreen.show_screen("")
                 self.__game.restart()
-                # self.__speechDetection = SpeechDetection(self.__session, self.__play_array, self.play_callback)
-                # self.__playing = 1
+                self.__speechDetection = SpeechDetection(self.__session, self.__play_array, self.play_callback)
+                self.__playing = 1
         if value[0] == "Stop":
             if value[1] > 0.4:
                 self.__playing = 0

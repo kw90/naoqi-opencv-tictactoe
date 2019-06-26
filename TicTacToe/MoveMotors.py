@@ -53,7 +53,7 @@ class MoveMotors(object):
 
 
 if __name__ == '__main__':
-    ip = "192.168.1.101"
+    ip = os.environ['PEPPER_IP']
     connection_url = ip + ":9559"
     app = qi.Application(["--qi-url=" + connection_url])
     app.start()

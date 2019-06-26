@@ -57,8 +57,7 @@ class DetectBoard:
         camera.setCameraID(0)
         path = "/home/nao/recordings/cameras/"
         fileName = "board.jpg"
-        #local_path = './pictures/board.jpg'
-        local_path = '/naoqi/src/tic-tac-toe/example-images/boards/board_9.jpg'
+        local_path = './pictures/board.jpg'
 
         while matchfield[0][0] == -1:
             camera.takePicture(path, fileName)
@@ -279,11 +278,14 @@ if __name__ == '__main__':
     if str.find(cv2_version, "3.4.") != -1:
         print("Using opencv version ", cv2_version)
 
-    #connection_url = os.getenv('PEPPER_IP')+":9559"
-    #app = qi.Application(["--qi-url=" + connection_url])
-    #app.start()
-    #session = app.session
+    connection_url = os.getenv('PEPPER_IP')+":9559"
+    app = qi.Application(["--qi-url=" + connection_url])
+    app.start()
+    session = app.session
 
-    board = detect_board.get_picture_board()
+    # local testing pipeline
+    # board = detect_board.get_picture_board()
+    # detect board on pepper
+    board = detect_board.get_board(session)
     print(board)
 

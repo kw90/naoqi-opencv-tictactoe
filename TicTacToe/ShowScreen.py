@@ -24,7 +24,7 @@ class ShowScreen(object):
             print(e)
 
     def show_screen(self, params):
-        url = "http://" + "198.18.0.1" + "/apps/tic-tac-toe/index.html"
+        url = "http://" + ip = os.environ['PEPPER_TABLET_IP'] + "/apps/tic-tac-toe/index.html"
         url_flipped = "http://" + self.__ip + "/apps/tic-tac-toe/html/index-flipped.html"
         self.__tablet.showWebview(url + params)
         webbrowser.open(url_flipped+params, new=0, autoraise=True)

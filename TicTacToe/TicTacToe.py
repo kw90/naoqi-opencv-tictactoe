@@ -119,10 +119,3 @@ class TicTacToe:
         text = text[:-1]
         return text
 
-
-# cce = TicTacToe()
-# while True:
-#    text = raw_input("you'r Move (bsp: 1 2): ")
-#    text_split = text.split(" ")
-#    cce.place(int(text_split[0]), int(text_split[1]))
-
