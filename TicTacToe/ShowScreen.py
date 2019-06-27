@@ -1,5 +1,6 @@
 import qi
 import time
+import os
 from naoqi import ALProxy
 import webbrowser
 
@@ -24,7 +25,7 @@ class ShowScreen(object):
             print(e)
 
     def show_screen(self, params):
-        url = "http://" + ip = os.environ['PEPPER_TABLET_IP'] + "/apps/tic-tac-toe/index.html"
+        url = "http://" + os.environ['PEPPER_TABLET_IP'] + "/apps/tic-tac-toe/index.html"
         url_flipped = "http://" + self.__ip + "/apps/tic-tac-toe/html/index-flipped.html"
         self.__tablet.showWebview(url + params)
         webbrowser.open(url_flipped+params, new=0, autoraise=True)

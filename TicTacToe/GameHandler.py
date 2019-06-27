@@ -13,7 +13,6 @@ import almath
 class GameHandler(object):
 
     def __init__(self, session, ip, motion, leds):
-        # self.__play_array = ["top left", "top middle", "top right", "middle left", "middle middle", "middle right", "bottom left", "bottom middle", "bottom right"]
         self.__session = session
         self.__speech = Speech(self.__session)
         self.__showScreen = ShowScreen(self.__session, ip)
@@ -29,14 +28,15 @@ class GameHandler(object):
         self.__leds = leds
         while self.__program_running:
             while self.__waiting_game_start:
-                input = raw_input('Say ´lets play´ or press enter to start a game.')
-                if input == "":
-                    #self.__speechDetection.unsubscribe()
-                    self.look_at_player_and_say("Okay, Let's do this!", False)
-                    self.__waiting_game_start = 0
-                    self.__showScreen.show_screen("")
-                    self.__game.restart()
-                    self.__playing = 1
+                # Add the following for starting on Enter
+                #input = raw_input('Say ´lets play´ or press enter to start a game.')
+                #if input == "":
+                #    self.__speechDetection.unsubscribe()
+                #    self.look_at_player_and_say("Okay, Let's do this!", False)
+                #    self.__waiting_game_start = 0
+                #    self.__showScreen.show_screen("")
+                #    self.__game.restart()
+                #    self.__playing = 1
                 pass
             while self.__playing:
                 delta = 0
@@ -44,8 +44,6 @@ class GameHandler(object):
                 while delta != 1:
                     time.sleep(0.5)
                     delta = self.__moveReader.read_move()
-                    # if delta == 1:
-                        # self.__speech.say("move detected please play my stone here")
                     if delta > 1:
                         self.look_at_player_and_say("Too many moves detected! Restore my image board", True)
                         time.sleep(1)
@@ -72,9 +70,8 @@ class GameHandler(object):
             print "End of Game"
             self.__waiting_game_start = 1
             self.__playing = 1
-            self.__speechDetection.unsubscribe()
             self.__speechDetection = SpeechDetection(self.__session, ["Let's Play", "Stop"], self.speech_callback)
-        #self.__speechDetection.unsubscribe()
+        self.__speechDetection.unsubscribe()
 
 
 
@@ -94,8 +91,6 @@ class GameHandler(object):
                 self.__waiting_game_start = 0
                 self.__showScreen.show_screen("")
                 self.__game.restart()
-                self.__speechDetection = SpeechDetection(self.__session, self.__play_array, self.play_callback)
-                self.__playing = 1
         if value[0] == "Stop":
             if value[1] > 0.4:
                 self.__playing = 0

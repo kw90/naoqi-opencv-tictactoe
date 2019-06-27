@@ -18,9 +18,9 @@ class MatchFieldFinder:
 
         self.__img_optimizer.save_images_for_debug(gray, "gray" + str(img_cnt), self.__cv_basic_conf.debug)
 
-        #gray = ImageOptimizer.transform_image_to_black_white(gray, 125)
+        gray = ImageOptimizer.transform_image_to_black_white(gray, 150)
 
-        #self.__img_optimizer.save_images_for_debug(gray, "gray_binary" + str(img_cnt), self.__cv_basic_conf.debug)
+        self.__img_optimizer.save_images_for_debug(gray, "gray_binary" + str(img_cnt), self.__cv_basic_conf.debug)
 
         # detect edges in the image
         edged = cv2.Canny(gray, 150, 255)

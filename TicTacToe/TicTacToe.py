@@ -12,8 +12,8 @@ class TicTacToe:
     colourPlayer1 = "red"
     colourPlayer2 = "blue"
     # player1 = user
-    #player2 = TicTacToeAiHeuristic()
-    player2 = TicTacToeAiRand()
+    player2 = TicTacToeAiHeuristic()
+    #player2 = TicTacToeAiRand()
 
     def __init__(self, session, speech, show_screen):
         self.__speech = speech

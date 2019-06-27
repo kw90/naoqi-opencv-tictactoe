@@ -21,12 +21,12 @@ class DetectBoard:
         self.__red_range_upper = np.array((50, 56, 255), dtype="uint8")
         self.__blue_range_lower = np.array((86, 31, 4), dtype="uint8")
         self.__blue_range_upper = np.array((220, 88, 50), dtype="uint8")
-        self.__red_range_hsv_lower_1 = np.array([0, 50, 50])
-        self.__red_range_hsv_lower_2 = np.array([150, 50, 50])
+        self.__red_range_hsv_lower_1 = np.array([0, 100, 50])
+        self.__red_range_hsv_lower_2 = np.array([150, 100, 50])
         self.__red_range_hsv_upper_1 = np.array([10, 255, 255])
         self.__red_range_hsv_upper_2 = np.array([190, 255, 255])
-        self.__blue_range_hsv_lower = np.array([100, 70, 50])
-        self.__blue_range_hsv_upper = np.array([130, 255, 255])
+        self.__blue_range_hsv_lower = np.array([100, 120, 30])
+        self.__blue_range_hsv_upper = np.array([120, 255, 255])
 
         self.__ip = os.getenv('PEPPER_IP')
         self.__pw = os.getenv('PEPPER_PW')
@@ -183,7 +183,7 @@ class DetectBoard:
                 if x_point != 4:
                     matchfield[y_point][x_point] = 1
 
-                cv2.drawMarker(test_image1, (x, y), (0, 0, 255), markerType=cv2.MARKER_CROSS, markerSize=15, line_type=cv2.LINE_AA)
+                cv2.drawMarker(test_image1, (x+w/2, y+h/2), (0, 0, 255), markerType=cv2.MARKER_CROSS, markerSize=15, line_type=cv2.LINE_AA)
                 self.__img_optimizer.save_images_for_debug(target_red, "mask_red_fields" + str(self.__img_counter), self.__DEBUG)
                 self.__img_optimizer.save_images_for_debug(test_image1, "piccont_fields" + str(self.__img_counter), self.__DEBUG)
 
@@ -208,7 +208,7 @@ class DetectBoard:
                 if x_point != 4:
                     matchfield[y_point][x_point] = 2
 
-                cv2.drawMarker(test_image1, (x, y), (255, 0, 0), markerType=cv2.MARKER_CROSS,
+                cv2.drawMarker(test_image1, (x+w/2, y+h/2), (255, 0, 0), markerType=cv2.MARKER_CROSS,
                                markerSize=15, line_type=cv2.LINE_AA)
                 self.__img_optimizer.save_images_for_debug(target_blue, "mask_blue_fields_2_" + str(self.__img_counter), self.__DEBUG)
                 self.__img_optimizer.save_images_for_debug(test_image1, "piccont_fields_2_" + str(self.__img_counter), self.__DEBUG)
