@@ -2,9 +2,8 @@ import cv2
 
 
 class ImageOptimizer:
-
     def __init__(self):
-        self.__img_path = "images_debug_"
+        self.__img_path = "debug_images/images_debug_"
 
     @staticmethod
     def transform_image_to_black_white(image, threshold):

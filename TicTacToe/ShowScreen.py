@@ -1,34 +1,22 @@
-import qi
-import time
 import os
-from naoqi import ALProxy
-import webbrowser
 
 
 class ShowScreen(object):
-
-    def __init__(self, session, ip):
-        self.__ip = ip
+    def __init__(self, session):
+        self.__ip = os.environ.get("BOARD_SERVICE_IP")
+        self.__port = os.environ.get("BOARD_SERVICE_PORT")
         try:
             self.__tablet = session.service("ALTabletService")
             self.__tablet.enableWifi()
-            # tablet = session.service("ALTabletService")
-            # tablet.enableWifi()
-            # self.__tablet.configureWifi("wpa", "Thunder.kW", "Get.Out.Of:Hotspot")
-            # self.__tablet.connectWifi("Thunder.kW")
-            print(self.__tablet.getWifiStatus())
-            #tablet.playVideo("https://youtu.be/M3pKKlSUPMk")
-            #print tablet.getVideoPosition(), " / ", tablet.getVideoLength()
-            #time.sleep(200)
-            #tablet.stopVideo()
+            print("Tablet connection status: " + self.__tablet.getWifiStatus())
         except Exception as e:
             print(e)
 
     def show_screen(self, params):
-        url = "http://" + os.environ['PEPPER_TABLET_IP'] + "/apps/tic-tac-toe/index.html"
-        url_flipped = "http://" + self.__ip + "/apps/tic-tac-toe/html/index-flipped.html"
-        self.__tablet.showWebview(url + params)
-        webbrowser.open(url_flipped+params, new=0, autoraise=True)
+        url_flipped = (
+            "http://" + self.__ip + ":" + self.__port + "/index-flipped.html"
+        )
+        self.__tablet.showWebview(url_flipped + params)
 
     def hide_screen(self):
         self.__tablet.hideWebview()

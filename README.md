@@ -20,6 +20,15 @@ $ ssh nao@[PEPPER_IP]
 # naoqi-bin --disable-life
 ```
 
+## Play TicTacToe
+
+1. Print or Draw a black Tic Tac Toe field with rather thick edges
+2. Place Pepper at roughly 40cm distance in front of the field
+3. Launch web server to host the game field that is retrieved by Peppers tablet
+4. Launch VNC and see if field is clearly visible by Peppers camera
+5. (Launch image server to see debug CV images)
+5. Launch game
+
 
 ## Development Guide
 
