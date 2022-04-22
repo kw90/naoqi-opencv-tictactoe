@@ -72,6 +72,8 @@ class DetectBoard:
 
     def get_matchfield(self, image):
         matchfield = [[0 for x in range(3)] for y in range(3)]
+        if image is None:
+            return matchfield
         width = image[0]
         height = image[1]
         image_data = image[6]

@@ -15,8 +15,8 @@ if __name__ == "__main__":
     motion = session.service("ALMotion")
     leds = session.service("ALLeds")
 
-    # motion.setExternalCollisionProtectionEnabled('All', False)
-    # motion.setCollisionProtectionEnabled('Arms', True)
+    motion.setExternalCollisionProtectionEnabled('All', False)
+    motion.setCollisionProtectionEnabled('Arms', True)
     print(
         "arms collison protection: "
         + str(motion.getCollisionProtectionEnabled("Arms"))
