@@ -7,14 +7,14 @@
 ℹ️ wait for all modules to be loaded (all 143 of them)
 
 3. Launch web server to host the game field that is retrieved by Peppers tablet
-`cd ~/source/naoqi-opencv-tictactoe/TicTacToe/html/html && python3 -m http.server`
+`cd TicTacToe/html/html && python3 -m http.server`
 
 4. Launch VNC and see if field is clearly visible by Peppers camera
 `cd ~/source/docker-pepper && ./run.sh`
 
 5. (Launch image server to see debug CV images)
-`cd ~/source/naoqi-opencv-tictactoe/TicTacToe/debug_images && python imageme.py 8080`
+`cd ./TicTacToe/debug_images && python2 imageme.py 8080`
 -> Open browser at localhost:8080 and use auto-refresh extension
 
 5. Launch game
-`cd ~/source/naoqi-opencv-tictactoe && ./run.sh`
+`./run.sh`
