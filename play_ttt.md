@@ -4,6 +4,7 @@
 
 2. Place Pepper at roughly 40cm distance in front of the field and run
 `ssh nao@PEPPER_IP -c "nao stop && naoqi-bin --disable-life"`
+ℹ️ wait for all modules to be loaded (all 143 of them)
 
 3. Launch web server to host the game field that is retrieved by Peppers tablet
 `cd ~/source/naoqi-opencv-tictactoe/TicTacToe/html/html && python3 -m http.server`
