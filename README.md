@@ -42,13 +42,13 @@ git clone https://github.com/kw90/naoqi-opencv-tictactoe.git
 and navigate into the folder
 
 ```bash
-cd naoqi-opencv-tictactoe-dev
+cd naoqi-opencv-tictactoe
 ```
 
 Inside this folder the container can be built using
 
 ```bash
-docker build -t naoqi-opencv-tictactoe-dev:latest .
+docker build -t naoqi-opencv-tictactoe:latest .
 ```
 
 This will pull the Docker image from the Docker Hub, copy the
@@ -58,7 +58,7 @@ Launch order.
 Then the container can be started by running,
 
 ```bash
-docker run -it --network host naoqi-opencv-tictactoe-dev:latest
+docker run -it --network host naoqi-opencv-tictactoe:latest
 ```
 
 which runs  the Python `Main.py` program on the specified Pepper in the `Dockerfile`.
@@ -66,14 +66,14 @@ which runs  the Python `Main.py` program on the specified Pepper in the `Dockerf
 To run a different program inside the container, it can be specified after the container image description
 
 ```bash
-docker run -it --network host naoqi-opencv-tictactoe-dev:latest python DetectBoard.py
+docker run -it --network host naoqi-opencv-tictactoe:latest python DetectBoard.py
 ```
 
 If something has been modified in the TicTacToe application, you can simply use the two commands
 
 ```bash
-docker build -t naoqi-opencv-tictactoe-dev:latest .
-docker run -it --network host naoqi-opencv-tictactoe-dev:latest
+docker build -t naoqi-opencv-tictactoe:latest .
+docker run -it --network host naoqi-opencv-tictactoe:latest
 ```
 
 to rebuild and rerun the container.
@@ -83,7 +83,7 @@ to rebuild and rerun the container.
 For more convenient development, the source directory `TicTacToe` can be mounted inside the container and started with a simple shell as entrypoint
 
 ```bash
-docker run -it -v `pwd`/TicTacToe:/naoqi/src/tic-tac-toe --entrypoint /bin/sh --network host naoqi-opencv-tictactoe-dev:latest
+docker run -it -v `pwd`/TicTacToe:/naoqi/src/tic-tac-toe --entrypoint /bin/sh --network host naoqi-opencv-tictactoe:latest
 ```
 This method allows to modify files on the Host machine using a preferred text editor and run them inside the container by running the Python program on the Docker shell, e.g. simply
 
